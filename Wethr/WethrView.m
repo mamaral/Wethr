@@ -26,8 +26,6 @@ static CGFloat const kCityLabelMultiplier = 0.2;
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     
-    self.backgroundColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.5];
-    
     _locationManager = [CLLocationManager new];
     _locationManager.delegate = self;
     _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
@@ -44,7 +42,6 @@ static CGFloat const kCityLabelMultiplier = 0.2;
     self.tempLabel.textColor = [UIColor whiteColor];
     self.tempLabel.font = [UIFont fontWithName:kDefaultFontName size:tempLabelHeight];
     self.tempLabel.adjustsFontSizeToFitWidth = YES;
-    self.tempLabel.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.5];
     [self addSubview:self.tempLabel];
     
     self.conditionsLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.tempLabel.frame), width, conditionsLabelHeight)];
@@ -53,7 +50,6 @@ static CGFloat const kCityLabelMultiplier = 0.2;
     self.conditionsLabel.textColor = [UIColor whiteColor];
     self.conditionsLabel.font = [UIFont fontWithName:kDefaultFontName size:conditionsLabelHeight];
     self.conditionsLabel.adjustsFontSizeToFitWidth = YES;
-    self.conditionsLabel.backgroundColor = [[UIColor blueColor] colorWithAlphaComponent:0.5];
     [self addSubview:self.conditionsLabel];
     
     self.cityLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.conditionsLabel.frame), width, cityLabelHeight)];
@@ -62,7 +58,6 @@ static CGFloat const kCityLabelMultiplier = 0.2;
     self.cityLabel.textColor = [UIColor whiteColor];
     self.cityLabel.font = [UIFont fontWithName:kDefaultFontName size:cityLabelHeight];
     self.cityLabel.adjustsFontSizeToFitWidth = YES;
-    self.cityLabel.backgroundColor = [[UIColor grayColor] colorWithAlphaComponent:0.5];
     [self addSubview:self.cityLabel];
     
     _debugLoggingEnabled = NO;
