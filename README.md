@@ -22,9 +22,9 @@ The temperature, current conditions, and city labels are exposed for any customi
 
 ![demo](Screenshots/demo2.png)
 
-Wethr current utilizes the OpenWeatherMap API for fetching the weather data. [^1]
+Wethr current utilizes the OpenWeatherMap API for fetching the weather data. [1]
 
-[^1]:http://openweathermap.org/
+[1]:http://openweathermap.org/
 
 
 Community
