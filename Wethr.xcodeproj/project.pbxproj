@@ -1,0 +1,437 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		276DB84519DC707D000DAEA3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 276DB84419DC707D000DAEA3 /* main.m */; };
+		276DB84819DC707D000DAEA3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 276DB84719DC707D000DAEA3 /* AppDelegate.m */; };
+		276DB84A19DC707D000DAEA3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 276DB84919DC707D000DAEA3 /* Images.xcassets */; };
+		276DB85919DC707D000DAEA3 /* WethrTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 276DB85819DC707D000DAEA3 /* WethrTests.m */; };
+		276DB86519DC7092000DAEA3 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 276DB86419DC7092000DAEA3 /* MainViewController.m */; };
+		276DB86819DC70CD000DAEA3 /* WethrView.m in Sources */ = {isa = PBXBuildFile; fileRef = 276DB86719DC70CD000DAEA3 /* WethrView.m */; };
+		276DB86A19DC7254000DAEA3 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 276DB86919DC7254000DAEA3 /* bg.png */; };
+		2784EC3519DC768B0084420A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2784EC3419DC768B0084420A /* Default-568h@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		276DB85319DC707D000DAEA3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 276DB83719DC707D000DAEA3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 276DB83E19DC707D000DAEA3;
+			remoteInfo = Wethr;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		276DB83F19DC707D000DAEA3 /* Wethr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wethr.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		276DB84319DC707D000DAEA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		276DB84419DC707D000DAEA3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		276DB84619DC707D000DAEA3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		276DB84719DC707D000DAEA3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		276DB84919DC707D000DAEA3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		276DB85219DC707D000DAEA3 /* WethrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WethrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		276DB85719DC707D000DAEA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		276DB85819DC707D000DAEA3 /* WethrTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WethrTests.m; sourceTree = "<group>"; };
+		276DB86319DC7092000DAEA3 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		276DB86419DC7092000DAEA3 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		276DB86619DC70CD000DAEA3 /* WethrView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WethrView.h; sourceTree = "<group>"; };
+		276DB86719DC70CD000DAEA3 /* WethrView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WethrView.m; sourceTree = "<group>"; };
+		276DB86919DC7254000DAEA3 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
+		2784EC3419DC768B0084420A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		276DB83C19DC707D000DAEA3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		276DB84F19DC707D000DAEA3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		276DB83619DC707D000DAEA3 = {
+			isa = PBXGroup;
+			children = (
+				276DB84119DC707D000DAEA3 /* Wethr */,
+			);
+			sourceTree = "<group>";
+		};
+		276DB84019DC707D000DAEA3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				276DB83F19DC707D000DAEA3 /* Wethr.app */,
+				276DB85219DC707D000DAEA3 /* WethrTests.xctest */,
+			);
+			name = Products;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		276DB84119DC707D000DAEA3 /* Wethr */ = {
+			isa = PBXGroup;
+			children = (
+				276DB86619DC70CD000DAEA3 /* WethrView.h */,
+				276DB86719DC70CD000DAEA3 /* WethrView.m */,
+				276DB86219DC7082000DAEA3 /* Demo */,
+			);
+			path = Wethr;
+			sourceTree = "<group>";
+		};
+		276DB84219DC707D000DAEA3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				276DB84319DC707D000DAEA3 /* Info.plist */,
+				276DB84419DC707D000DAEA3 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		276DB85519DC707D000DAEA3 /* WethrTests */ = {
+			isa = PBXGroup;
+			children = (
+				276DB85819DC707D000DAEA3 /* WethrTests.m */,
+				276DB85619DC707D000DAEA3 /* Supporting Files */,
+			);
+			path = WethrTests;
+			sourceTree = SOURCE_ROOT;
+		};
+		276DB85619DC707D000DAEA3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				276DB85719DC707D000DAEA3 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		276DB86219DC7082000DAEA3 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				276DB86919DC7254000DAEA3 /* bg.png */,
+				276DB84619DC707D000DAEA3 /* AppDelegate.h */,
+				276DB84719DC707D000DAEA3 /* AppDelegate.m */,
+				276DB86319DC7092000DAEA3 /* MainViewController.h */,
+				276DB86419DC7092000DAEA3 /* MainViewController.m */,
+				276DB86E19DC76AF000DAEA3 /* Unimportant Stuff */,
+			);
+			name = Demo;
+			sourceTree = "<group>";
+		};
+		276DB86E19DC76AF000DAEA3 /* Unimportant Stuff */ = {
+			isa = PBXGroup;
+			children = (
+				2784EC3419DC768B0084420A /* Default-568h@2x.png */,
+				276DB84919DC707D000DAEA3 /* Images.xcassets */,
+				276DB84219DC707D000DAEA3 /* Supporting Files */,
+				276DB85519DC707D000DAEA3 /* WethrTests */,
+				276DB84019DC707D000DAEA3 /* Products */,
+			);
+			name = "Unimportant Stuff";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		276DB83E19DC707D000DAEA3 /* Wethr */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 276DB85C19DC707D000DAEA3 /* Build configuration list for PBXNativeTarget "Wethr" */;
+			buildPhases = (
+				276DB83B19DC707D000DAEA3 /* Sources */,
+				276DB83C19DC707D000DAEA3 /* Frameworks */,
+				276DB83D19DC707D000DAEA3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Wethr;
+			productName = Wethr;
+			productReference = 276DB83F19DC707D000DAEA3 /* Wethr.app */;
+			productType = "com.apple.product-type.application";
+		};
+		276DB85119DC707D000DAEA3 /* WethrTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 276DB85F19DC707D000DAEA3 /* Build configuration list for PBXNativeTarget "WethrTests" */;
+			buildPhases = (
+				276DB84E19DC707D000DAEA3 /* Sources */,
+				276DB84F19DC707D000DAEA3 /* Frameworks */,
+				276DB85019DC707D000DAEA3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				276DB85419DC707D000DAEA3 /* PBXTargetDependency */,
+			);
+			name = WethrTests;
+			productName = WethrTests;
+			productReference = 276DB85219DC707D000DAEA3 /* WethrTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		276DB83719DC707D000DAEA3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = "Mike Amaral";
+				TargetAttributes = {
+					276DB83E19DC707D000DAEA3 = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					276DB85119DC707D000DAEA3 = {
+						CreatedOnToolsVersion = 6.0;
+						TestTargetID = 276DB83E19DC707D000DAEA3;
+					};
+				};
+			};
+			buildConfigurationList = 276DB83A19DC707D000DAEA3 /* Build configuration list for PBXProject "Wethr" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 276DB83619DC707D000DAEA3;
+			productRefGroup = 276DB84019DC707D000DAEA3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				276DB83E19DC707D000DAEA3 /* Wethr */,
+				276DB85119DC707D000DAEA3 /* WethrTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		276DB83D19DC707D000DAEA3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				276DB84A19DC707D000DAEA3 /* Images.xcassets in Resources */,
+				276DB86A19DC7254000DAEA3 /* bg.png in Resources */,
+				2784EC3519DC768B0084420A /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		276DB85019DC707D000DAEA3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		276DB83B19DC707D000DAEA3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				276DB84819DC707D000DAEA3 /* AppDelegate.m in Sources */,
+				276DB86519DC7092000DAEA3 /* MainViewController.m in Sources */,
+				276DB84519DC707D000DAEA3 /* main.m in Sources */,
+				276DB86819DC70CD000DAEA3 /* WethrView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		276DB84E19DC707D000DAEA3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				276DB85919DC707D000DAEA3 /* WethrTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		276DB85419DC707D000DAEA3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 276DB83E19DC707D000DAEA3 /* Wethr */;
+			targetProxy = 276DB85319DC707D000DAEA3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		276DB85A19DC707D000DAEA3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		276DB85B19DC707D000DAEA3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		276DB85D19DC707D000DAEA3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Wethr/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		276DB85E19DC707D000DAEA3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Wethr/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		276DB86019DC707D000DAEA3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = WethrTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wethr.app/Wethr";
+			};
+			name = Debug;
+		};
+		276DB86119DC707D000DAEA3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = WethrTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wethr.app/Wethr";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		276DB83A19DC707D000DAEA3 /* Build configuration list for PBXProject "Wethr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				276DB85A19DC707D000DAEA3 /* Debug */,
+				276DB85B19DC707D000DAEA3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		276DB85C19DC707D000DAEA3 /* Build configuration list for PBXNativeTarget "Wethr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				276DB85D19DC707D000DAEA3 /* Debug */,
+				276DB85E19DC707D000DAEA3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		276DB85F19DC707D000DAEA3 /* Build configuration list for PBXNativeTarget "WethrTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				276DB86019DC707D000DAEA3 /* Debug */,
+				276DB86119DC707D000DAEA3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 276DB83719DC707D000DAEA3 /* Project object */;
+}
