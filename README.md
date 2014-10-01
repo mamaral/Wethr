@@ -9,7 +9,7 @@ Wethr provides developers the ability to add location-based current weather cond
 Usage
 ===
 
-WethrView is compatibile with iOS 7/8. If using in an iOS 8 application, you *must make sure you include the **NSLocationWhenInUseUsageDescription** key and value in your appl's info.plist*, otherwise ***Wethr will not work***.
+WethrView is compatibile with iOS 7/8. If using in an iOS 8 application, you *must make sure you include the NSLocationWhenInUseUsageDescription key and value in your appl's info.plist*, otherwise ***Wethr will not work***.
 
 WethrView is a subclass of `UIView`, so all that you need to do to add it to your view is initialize it with a frame, and add it as a subview. 
 
