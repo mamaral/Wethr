@@ -3,7 +3,9 @@ Wethr
 
 Wethr provides developers the ability to add location-based current weather conditions to their views as simply as adding any UIView. All you need to do is set up the frame and add it to your view and we'll handle getting the current weather conditions based on the user's location.
 
-![demo](Screenshots/demo.png)
+![demo1](Screenshots/demo.png)
+![demo2](Screenshots/demo2.png)
+![demo3](Screenshots/demo3.png)
 
 
 Usage
@@ -20,7 +22,7 @@ WethrView is a subclass of `UIView`, so all that you need to do to add it to you
 
 The temperature, current conditions, and city labels are exposed for any customization, and will automatically resize to handle rotation and to fit whatever frame you create it with.
 
-![demo](Screenshots/demo2.png)
+![demo](Screenshots/demo4.png)
 
 Wethr current utilizes the OpenWeatherMap API for fetching the weather data. [1]
 
