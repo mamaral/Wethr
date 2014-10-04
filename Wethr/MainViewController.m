@@ -26,6 +26,8 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     WethrView *wethrView = [[WethrView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.view.frame) - 190, 10, 180, 180)];
+    wethrView.canChangeTempType = YES;
+    wethrView.showsTempType = YES;
     [self.view addSubview:wethrView];
 }
 
