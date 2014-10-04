@@ -112,22 +112,6 @@ static enum TempType const kDefaultTempType = TempTypeFahrenheit;
     }];
 }
 
-- (void)showActivityIndicator {
-    // create the AI, start animating, and add it to the view
-    _activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    _activityIndicator.frame = self.bounds;
-    _activityIndicator.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    [_activityIndicator startAnimating];
-    [self addSubview:_activityIndicator];
-}
-
-- (void)hideActivityIndicator {
-    // stop the AI, remove it from the view, and get rid of it
-    [_activityIndicator stopAnimating];
-    [_activityIndicator removeFromSuperview];
-    _activityIndicator = nil;
-}
-
 - (void)updateWeatherData:(NSDictionary *)weatherData {
     // get the city name from the weather data and set it on the city label
     self.cityLabel.text = weatherData[@"name"];
@@ -158,6 +142,18 @@ static enum TempType const kDefaultTempType = TempTypeFahrenheit;
     }
 }
 
+- (void)fadeIn {
+    // fade in the components
+    [UIView animateWithDuration:kFadeInDuration animations:^{
+        self.tempLabel.alpha = 1.0;
+        self.cityLabel.alpha = 1.0;
+        self.conditionsLabel.alpha = 1.0;
+    }];
+}
+
+
+#pragma mark - Fahrenheit and Celcius
+
 - (void)changeTempType {
     // if we're set to Fahrenheit, change us to Celcius, and vice-versa
     switch (self.tempType) {
@@ -174,13 +170,49 @@ static enum TempType const kDefaultTempType = TempTypeFahrenheit;
     [self updateTempLabel];
 }
 
-- (void)fadeIn {
-    // fade in the components
-    [UIView animateWithDuration:kFadeInDuration animations:^{
-        self.tempLabel.alpha = 1.0;
-        self.cityLabel.alpha = 1.0;
-        self.conditionsLabel.alpha = 1.0;
-    }];
+- (NSNumber *)convertedTempFromKelvin:(NSNumber *)kelvin {
+    switch (self.tempType) {
+        case TempTypeFahrenheit:
+            return [self fahrenheitFromKelvin:kelvin];
+            break;
+            
+        case TempTypeCelcius:
+            return [self celciusFromKelvin:kelvin];
+            break;
+    }
+}
+
+- (NSNumber *)celciusFromKelvin:(NSNumber *)kelvin {
+    // TODO: get actual temp conversion
+    double kelvinValue = [kelvin doubleValue];
+    NSInteger convertedValue =  ceil((kelvinValue - 273.15) * 1.8000 + 32.00);
+    return @(convertedValue);
+}
+
+- (NSNumber *)fahrenheitFromKelvin:(NSNumber *)kelvin {
+    double kelvinValue = [kelvin doubleValue];
+    NSInteger convertedValue =  ceil((kelvinValue - 273.15) * 1.8000 + 32.00);
+    return @(convertedValue);
+}
+
+
+#pragma mark - Activity Indicator
+
+
+- (void)showActivityIndicator {
+    // create the AI, start animating, and add it to the view
+    _activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    _activityIndicator.frame = self.bounds;
+    _activityIndicator.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    [_activityIndicator startAnimating];
+    [self addSubview:_activityIndicator];
+}
+
+- (void)hideActivityIndicator {
+    // stop the AI, remove it from the view, and get rid of it
+    [_activityIndicator stopAnimating];
+    [_activityIndicator removeFromSuperview];
+    _activityIndicator = nil;
 }
 
 
@@ -355,34 +387,6 @@ static enum TempType const kDefaultTempType = TempTypeFahrenheit;
     }
     
     [_locationManager startUpdatingLocation];
-}
-
-
-#pragma mark - Utilities
-
-- (NSNumber *)convertedTempFromKelvin:(NSNumber *)kelvin {
-    switch (self.tempType) {
-        case TempTypeFahrenheit:
-            return [self fahrenheitFromKelvin:kelvin];
-            break;
-            
-        case TempTypeCelcius:
-            return [self celciusFromKelvin:kelvin];
-            break;
-    }
-}
-
-- (NSNumber *)celciusFromKelvin:(NSNumber *)kelvin {
-    // TODO: get actual temp conversion
-    double kelvinValue = [kelvin doubleValue];
-    NSInteger convertedValue =  ceil((kelvinValue - 273.15) * 1.8000 + 32.00);
-    return @(convertedValue);
-}
-
-- (NSNumber *)fahrenheitFromKelvin:(NSNumber *)kelvin {
-    double kelvinValue = [kelvin doubleValue];
-    NSInteger convertedValue =  ceil((kelvinValue - 273.15) * 1.8000 + 32.00);
-    return @(convertedValue);
 }
 
 
