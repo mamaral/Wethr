@@ -24,6 +24,7 @@ static NSString * const kDefaultFontName = @"HelveticaNeue-UltraLight";
 static CGFloat const kTempLabelMultiplier = 0.5;
 static CGFloat const kConditionsLabelMultiplier = 0.3;
 static CGFloat const kCityLabelMultiplier = 0.2;
+static CGFloat const kFadeInDuration = 2.0;
 
 static enum TempType const kDefaultTempType = TempTypeFahrenheit;
 
@@ -44,6 +45,7 @@ static enum TempType const kDefaultTempType = TempTypeFahrenheit;
     CGFloat fontMultiplier = 0.9;
     
     self.tempLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, width, tempLabelHeight)];
+    self.tempLabel.alpha = 0.0;
     self.tempLabel.textAlignment = NSTextAlignmentCenter;
     self.tempLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleHeight;
     self.tempLabel.textColor = [UIColor whiteColor];
@@ -52,6 +54,7 @@ static enum TempType const kDefaultTempType = TempTypeFahrenheit;
     [self addSubview:self.tempLabel];
     
     self.conditionsLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.tempLabel.frame), width, conditionsLabelHeight)];
+    self.conditionsLabel.alpha = 0.0;
     self.conditionsLabel.textAlignment = NSTextAlignmentCenter;
     self.conditionsLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleHeight;
     self.conditionsLabel.textColor = [UIColor whiteColor];
@@ -60,6 +63,7 @@ static enum TempType const kDefaultTempType = TempTypeFahrenheit;
     [self addSubview:self.conditionsLabel];
     
     self.cityLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.conditionsLabel.frame), width, cityLabelHeight)];
+    self.cityLabel.alpha = 0.0;
     self.cityLabel.textAlignment = NSTextAlignmentCenter;
     self.cityLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleHeight;
     self.cityLabel.textColor = [UIColor whiteColor];
@@ -138,6 +142,8 @@ static enum TempType const kDefaultTempType = TempTypeFahrenheit;
     NSDictionary *mainDict = weatherData[@"main"];
     _kelvinTemp = mainDict[@"temp"];
     [self updateTempLabel];
+    
+    [self fadeIn];
 }
 
 - (void)updateTempLabel {
@@ -166,6 +172,15 @@ static enum TempType const kDefaultTempType = TempTypeFahrenheit;
     
     // now that our temp type has changed we can update the temp label
     [self updateTempLabel];
+}
+
+- (void)fadeIn {
+    // fade in the components
+    [UIView animateWithDuration:kFadeInDuration animations:^{
+        self.tempLabel.alpha = 1.0;
+        self.cityLabel.alpha = 1.0;
+        self.conditionsLabel.alpha = 1.0;
+    }];
 }
 
 
