@@ -69,7 +69,9 @@ static enum TempType const kDefaultTempType = TempTypeFahrenheit;
     
     // set the default properties
     self.canChangeTempType = NO;
+    self.showsTempType = NO;
     self.showsActivityIndicator = NO;
+    self.tempType = kDefaultTempType;
     
     // for debugging only
     _debugLoggingEnabled = NO;
@@ -141,7 +143,13 @@ static enum TempType const kDefaultTempType = TempTypeFahrenheit;
 - (void)updateTempLabel {
     // convert the temp and set it on the temp label with the degrees symbol
     NSNumber *temp = [self convertedTempFromKelvin:_kelvinTemp];
-    self.tempLabel.text = [NSString stringWithFormat:@"%@°", temp];
+    if (self.showsTempType) {
+        NSString *tempTypeString = self.tempType == TempTypeFahrenheit ? @"F" : @"C";
+        self.tempLabel.text = [NSString stringWithFormat:@"%@°%@", temp, tempTypeString];
+    }
+    else {
+        self.tempLabel.text = [NSString stringWithFormat:@"%@°", temp];
+    }
 }
 
 - (void)changeTempType {
