@@ -36,12 +36,13 @@ static CGFloat const kCityLabelMultiplier = 0.2;
     CGFloat tempLabelHeight = height * kTempLabelMultiplier;
     CGFloat conditionsLabelHeight = height * kConditionsLabelMultiplier;
     CGFloat cityLabelHeight = height * kCityLabelMultiplier;
+    CGFloat fontMultiplier = 0.9;
     
     self.tempLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, width, tempLabelHeight)];
     self.tempLabel.textAlignment = NSTextAlignmentCenter;
     self.tempLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleHeight;
     self.tempLabel.textColor = [UIColor whiteColor];
-    self.tempLabel.font = [UIFont fontWithName:kDefaultFontName size:tempLabelHeight];
+    self.tempLabel.font = [UIFont fontWithName:kDefaultFontName size:tempLabelHeight * fontMultiplier];
     self.tempLabel.adjustsFontSizeToFitWidth = YES;
     [self addSubview:self.tempLabel];
     
@@ -49,7 +50,7 @@ static CGFloat const kCityLabelMultiplier = 0.2;
     self.conditionsLabel.textAlignment = NSTextAlignmentCenter;
     self.conditionsLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleHeight;
     self.conditionsLabel.textColor = [UIColor whiteColor];
-    self.conditionsLabel.font = [UIFont fontWithName:kDefaultFontName size:conditionsLabelHeight];
+    self.conditionsLabel.font = [UIFont fontWithName:kDefaultFontName size:conditionsLabelHeight * fontMultiplier];
     self.conditionsLabel.adjustsFontSizeToFitWidth = YES;
     [self addSubview:self.conditionsLabel];
     
@@ -57,7 +58,7 @@ static CGFloat const kCityLabelMultiplier = 0.2;
     self.cityLabel.textAlignment = NSTextAlignmentCenter;
     self.cityLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleHeight;
     self.cityLabel.textColor = [UIColor whiteColor];
-    self.cityLabel.font = [UIFont fontWithName:kDefaultFontName size:cityLabelHeight];
+    self.cityLabel.font = [UIFont fontWithName:kDefaultFontName size:cityLabelHeight * fontMultiplier];
     self.cityLabel.adjustsFontSizeToFitWidth = YES;
     [self addSubview:self.cityLabel];
     
