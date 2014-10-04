@@ -131,15 +131,25 @@ static enum TempType const kDefaultTempType = TempTypeFahrenheit;
 }
 
 - (void)updateTempLabel {
-    // convert the temp and set it on the temp label with the degrees symbol
+    // get the converted temp value
     NSNumber *temp = [self convertedTempFromKelvin:_kelvinTemp];
+    NSString *newTempString;
+    
+    // if we're showing the temp type, determine the type and set that as the new temp string
     if (self.showsTempType) {
         NSString *tempTypeString = self.tempType == TempTypeFahrenheit ? @"F" : @"C";
-        self.tempLabel.text = [NSString stringWithFormat:@"%@°%@", temp, tempTypeString];
+        newTempString = [NSString stringWithFormat:@"%@°%@", temp, tempTypeString];
     }
+    
+    // otherwise just set the value with the degree symbol as the new temp string
     else {
-        self.tempLabel.text = [NSString stringWithFormat:@"%@°", temp];
+        newTempString = [NSString stringWithFormat:@"%@°", temp];
     }
+    
+    // fade the transition between the current value and the new value on the label
+    [UIView transitionWithView:self.tempLabel duration:0.5 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+        self.tempLabel.text = newTempString;
+    } completion:nil];
 }
 
 - (void)fadeIn {
