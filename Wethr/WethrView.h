@@ -15,4 +15,6 @@
 @property (nonatomic, strong) UILabel *conditionsLabel;
 @property (nonatomic, strong) UILabel *tempLabel;
 
+@property (nonatomic) BOOL showsActivityIndicator;
+
 @end

@@ -14,6 +14,7 @@ typedef void (^locationHandler)(CLLocation *currentLocation);
 @implementation WethrView {
     CLLocationManager *_locationManager;
     locationHandler _locationHandler;
+    UIActivityIndicatorView *_activityIndicator;
     BOOL _debugLoggingEnabled;
 }
 
@@ -68,18 +69,31 @@ static CGFloat const kCityLabelMultiplier = 0.2;
 - (void)willMoveToSuperview:(UIView *)newSuperview {
     [super willMoveToSuperview:newSuperview];
     
-    UIActivityIndicatorView *progressView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    progressView.frame = self.bounds;
-    progressView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    [progressView startAnimating];
-    [self addSubview:progressView];
+    if (self.showsActivityIndicator) {
+        [self showActivityIndicator];
+    }
     
     [self getCurrentWeatherDataWithCompletionHandler:^(NSDictionary *weatherData) {
-        [progressView stopAnimating];
-        [progressView removeFromSuperview];
+        if (self.showsActivityIndicator) {
+            [self hideActivityIndicator];
+        }
         
         [self updateWeatherData:weatherData];
     }];
+}
+
+- (void)showActivityIndicator {
+    _activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    _activityIndicator.frame = self.bounds;
+    _activityIndicator.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    [_activityIndicator startAnimating];
+    [self addSubview:_activityIndicator];
+}
+
+- (void)hideActivityIndicator {
+    [_activityIndicator stopAnimating];
+    [_activityIndicator removeFromSuperview];
+    _activityIndicator = nil;
 }
 
 - (void)updateWeatherData:(NSDictionary *)weatherData {
