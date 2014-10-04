@@ -30,10 +30,12 @@ static enum TempType const kDefaultTempType = TempTypeFahrenheit;
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     
+    // create and configure our location manager
     _locationManager = [CLLocationManager new];
     _locationManager.delegate = self;
     _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     
+    // create and configure the view components
     CGFloat width = CGRectGetWidth(frame);
     CGFloat height = CGRectGetHeight(frame);
     CGFloat tempLabelHeight = height * kTempLabelMultiplier;
@@ -65,9 +67,11 @@ static enum TempType const kDefaultTempType = TempTypeFahrenheit;
     self.cityLabel.adjustsFontSizeToFitWidth = YES;
     [self addSubview:self.cityLabel];
     
+    // set the default properties
     self.canChangeTempType = NO;
     self.showsActivityIndicator = NO;
     
+    // for debugging only
     _debugLoggingEnabled = NO;
     
     return self;
@@ -79,25 +83,31 @@ static enum TempType const kDefaultTempType = TempTypeFahrenheit;
 - (void)willMoveToSuperview:(UIView *)newSuperview {
     [super willMoveToSuperview:newSuperview];
     
+    // if we've enabled changing the temp type, add a gesture recognizer that will change the type when tapped
     if (self.canChangeTempType) {
         UITapGestureRecognizer *tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(changeTempType)];
         [self addGestureRecognizer:tapGR];
     }
     
+    // if we've enabled the activity indicator, show it now
     if (self.showsActivityIndicator) {
         [self showActivityIndicator];
     }
     
+    // send the request for the weather information
     [self getCurrentWeatherDataWithCompletionHandler:^(NSDictionary *weatherData) {
+        // if we were showing an activity indicator, hide it now
         if (self.showsActivityIndicator) {
             [self hideActivityIndicator];
         }
         
+        // pass the weather data to the method that handles parsing and displaying it
         [self updateWeatherData:weatherData];
     }];
 }
 
 - (void)showActivityIndicator {
+    // create the AI, start animating, and add it to the view
     _activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     _activityIndicator.frame = self.bounds;
     _activityIndicator.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -106,28 +116,36 @@ static enum TempType const kDefaultTempType = TempTypeFahrenheit;
 }
 
 - (void)hideActivityIndicator {
+    // stop the AI, remove it from the view, and get rid of it
     [_activityIndicator stopAnimating];
     [_activityIndicator removeFromSuperview];
     _activityIndicator = nil;
 }
 
 - (void)updateWeatherData:(NSDictionary *)weatherData {
+    // get the city name from the weather data and set it on the city label
     self.cityLabel.text = weatherData[@"name"];
     
-    NSDictionary *weatherDict = [weatherData[@"weather"] firstObject];;
+    // get the weather description from the weather data for today and set it on the conditions label
+    NSDictionary *weatherDict = [weatherData[@"weather"] firstObject];
     self.conditionsLabel.text = weatherDict[@"main"];
     
+    // get the kelvin temperature from the weather data, store the kelvin temp in the instance variable,
+    // (used so we always convert from Kelvin rather than back and forth from C to F), and update the
+    // temp label which will use the Kelvin instance var
     NSDictionary *mainDict = weatherData[@"main"];
     _kelvinTemp = mainDict[@"temp"];
     [self updateTempLabel];
 }
 
 - (void)updateTempLabel {
+    // convert the temp and set it on the temp label with the degrees symbol
     NSNumber *temp = [self convertedTempFromKelvin:_kelvinTemp];
     self.tempLabel.text = [NSString stringWithFormat:@"%@°", temp];
 }
 
 - (void)changeTempType {
+    // if we're set to Fahrenheit, change us to Celcius, and vice-versa
     switch (self.tempType) {
         case TempTypeFahrenheit:
             self.tempType = TempTypeCelcius;
@@ -138,6 +156,7 @@ static enum TempType const kDefaultTempType = TempTypeFahrenheit;
             break;
     }
     
+    // now that our temp type has changed we can update the temp label
     [self updateTempLabel];
 }
 
@@ -145,6 +164,7 @@ static enum TempType const kDefaultTempType = TempTypeFahrenheit;
 #pragma mark - Location Manager Delegate
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    // pass the most recent location back in the location handler and stop updating locations
     _locationHandler(locations.lastObject);
     [_locationManager stopUpdatingLocation];
 }
@@ -157,7 +177,10 @@ static enum TempType const kDefaultTempType = TempTypeFahrenheit;
 #pragma mark - Weather API
 
 - (void)getCurrentWeatherDataWithCompletionHandler:(currentWeatherHandler)handler {
+    // get the user's current location
     [self getCurrentLocationWithCompletionHandler:^(CLLocation *currentLocation) {
+        // parse the coordinate data into the params dictionary and send the request to the
+        // OpenWeatherMap API.
         NSNumber *lat = @(currentLocation.coordinate.latitude);
         NSNumber *lon = @(currentLocation.coordinate.longitude);
         NSString *URL = @"http://api.openweathermap.org/data/2.5/weather";
