@@ -16,6 +16,7 @@ typedef void (^locationHandler)(CLLocation *currentLocation);
     locationHandler _locationHandler;
     UIActivityIndicatorView *_activityIndicator;
     BOOL _debugLoggingEnabled;
+    NSNumber *_kelvinTemp;
 }
 
 static NSString * const kDefaultFontName = @"HelveticaNeue-UltraLight";
@@ -64,13 +65,24 @@ static enum TempType const kDefaultTempType = TempTypeFahrenheit;
     self.cityLabel.adjustsFontSizeToFitWidth = YES;
     [self addSubview:self.cityLabel];
     
+    self.canChangeTempType = NO;
+    self.showsActivityIndicator = NO;
+    
     _debugLoggingEnabled = NO;
     
     return self;
 }
 
+
+#pragma mark - UI
+
 - (void)willMoveToSuperview:(UIView *)newSuperview {
     [super willMoveToSuperview:newSuperview];
+    
+    if (self.canChangeTempType) {
+        UITapGestureRecognizer *tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(changeTempType)];
+        [self addGestureRecognizer:tapGR];
+    }
     
     if (self.showsActivityIndicator) {
         [self showActivityIndicator];
@@ -106,9 +118,27 @@ static enum TempType const kDefaultTempType = TempTypeFahrenheit;
     self.conditionsLabel.text = weatherDict[@"main"];
     
     NSDictionary *mainDict = weatherData[@"main"];
-    NSNumber *kelvinTemp = mainDict[@"temp"];
-    NSNumber *temp = [self convertedTempFromKelvin:kelvinTemp];
+    _kelvinTemp = mainDict[@"temp"];
+    [self updateTempLabel];
+}
+
+- (void)updateTempLabel {
+    NSNumber *temp = [self convertedTempFromKelvin:_kelvinTemp];
     self.tempLabel.text = [NSString stringWithFormat:@"%@°", temp];
+}
+
+- (void)changeTempType {
+    switch (self.tempType) {
+        case TempTypeFahrenheit:
+            self.tempType = TempTypeCelcius;
+            break;
+            
+        case TempTypeCelcius:
+            self.tempType = TempTypeFahrenheit;
+            break;
+    }
+    
+    [self updateTempLabel];
 }
 
 

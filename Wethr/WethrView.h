@@ -22,6 +22,7 @@ enum TempType: NSUInteger {
 
 @property (nonatomic) enum TempType tempType;
 
+@property (nonatomic) BOOL canChangeTempType;
 @property (nonatomic) BOOL showsActivityIndicator;
 
 @end
