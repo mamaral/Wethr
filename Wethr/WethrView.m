@@ -183,9 +183,8 @@ static enum TempType const kDefaultTempType = TempTypeFahrenheit;
 }
 
 - (NSNumber *)celciusFromKelvin:(NSNumber *)kelvin {
-    // TODO: get actual temp conversion
     double kelvinValue = [kelvin doubleValue];
-    NSInteger convertedValue =  ceil((kelvinValue - 273.15) * 1.8000 + 32.00);
+    NSInteger convertedValue =  ceil(kelvinValue - 273.15);
     return @(convertedValue);
 }
 
