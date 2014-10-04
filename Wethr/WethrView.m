@@ -24,6 +24,8 @@ static CGFloat const kTempLabelMultiplier = 0.5;
 static CGFloat const kConditionsLabelMultiplier = 0.3;
 static CGFloat const kCityLabelMultiplier = 0.2;
 
+static enum TempType const kDefaultTempType = TempTypeFahrenheit;
+
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     
@@ -105,8 +107,8 @@ static CGFloat const kCityLabelMultiplier = 0.2;
     
     NSDictionary *mainDict = weatherData[@"main"];
     NSNumber *kelvinTemp = mainDict[@"temp"];
-    NSNumber *fahrenheitTemp = [self fahrenheitFromKelvin:kelvinTemp];
-    self.tempLabel.text = [NSString stringWithFormat:@"%@°", fahrenheitTemp];
+    NSNumber *temp = [self convertedTempFromKelvin:kelvinTemp];
+    self.tempLabel.text = [NSString stringWithFormat:@"%@°", temp];
 }
 
 
@@ -281,6 +283,25 @@ static CGFloat const kCityLabelMultiplier = 0.2;
 
 
 #pragma mark - Utilities
+
+- (NSNumber *)convertedTempFromKelvin:(NSNumber *)kelvin {
+    switch (self.tempType) {
+        case TempTypeFahrenheit:
+            return [self fahrenheitFromKelvin:kelvin];
+            break;
+            
+        case TempTypeCelcius:
+            return [self celciusFromKelvin:kelvin];
+            break;
+    }
+}
+
+- (NSNumber *)celciusFromKelvin:(NSNumber *)kelvin {
+    // TODO: get actual temp conversion
+    double kelvinValue = [kelvin doubleValue];
+    NSInteger convertedValue =  ceil((kelvinValue - 273.15) * 1.8000 + 32.00);
+    return @(convertedValue);
+}
 
 - (NSNumber *)fahrenheitFromKelvin:(NSNumber *)kelvin {
     double kelvinValue = [kelvin doubleValue];
