@@ -1,5 +1,4 @@
-Wethr
-===
+![demo3](Screenshots/wethr.png)
 
 Wethr provides developers the ability to add location-based current weather conditions to their views as simply as adding any UIView. All you need to do is set up the frame and add it to your view and we'll handle getting the current weather conditions based on the user's location.
 
