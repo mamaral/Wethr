@@ -38,3 +38,7 @@ License
 ====
 
 This project is made available under the MIT license. See LICENSE.txt for details.
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/mamaral/wethr/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
